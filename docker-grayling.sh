@@ -39,7 +39,7 @@ sudo docker run \
   --cap-add=NET_ADMIN \
   --restart unless-stopped \
   --cap-add=NET_RAW \
-  --env TS_AUTHKEY=GET_KEY_FROM_TAILSCALE \
+  --env TS_AUTHKEY=$TAILSCALE_KEY \
   --env TS_EXTRA_ARGS=--advertise-exit-node \
   --env TS_ROUTES=192.168.0.0/24 \
   tailscale/tailscale
