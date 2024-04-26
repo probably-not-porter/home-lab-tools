@@ -65,10 +65,12 @@ docker run -d \
     prom/prometheus
 
 # Grafana
+mkdir /var/lib/grafana/ # create directory
 docker run -d \
   -p $GRAFANA_PORT:3000 \
   --name=grafana \
   -e "VIRTUAL_HOST=$GRAFANA_HOST,GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource" \
+  -v /var/lib/grafana:/var/lib/grafana \
   --name grafana \
   --restart=always \
   grafana/grafana-enterprise
