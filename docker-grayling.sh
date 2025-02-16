@@ -47,9 +47,10 @@ sudo docker run \
 # Dashy
 mkdir /etc/dashy/ # create directory
 docker run -d \
+  -p $DASHY_PORT:8080 \
   -e VIRTUAL_HOST=$DASHY_HOST \
-  -p $DASHY_PORT:80 \
-  -v /etc/dashy/dashy.yml:/app/public/conf.yml \
+  -e VIRTUAL_PORT=8080 \
+  -v /etc/dashy/dashy.yml:/app/user-data/conf.yml \
   --name dashy \
   --restart=always \
   lissy93/dashy:latest
